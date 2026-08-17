@@ -7,49 +7,108 @@
 <title>SiteFactory — демо-макеты</title>
 <style>
 :root{
-  --bg:#F3F2EF; --card:#FFF; --ink:#16130F; --ink-2:#5E5951; --line:#D6D2CA; --mark:#111;
+  --bg:#F3F2EF; --card:#FFF; --ink:#16130F; --ink-2:#5E5951; --line:#D6D2CA;
+  --now:#8A8177; --new:#1E6F3C;
 }
 @media (prefers-color-scheme: dark){
-  :root{ --bg:#14120F; --card:#1D1B17; --ink:#EDEAE4; --ink-2:#9A938A; --line:#302C26; --mark:#EDEAE4; }
+  :root{
+    --bg:#14120F; --card:#1D1B17; --ink:#EDEAE4; --ink-2:#9A938A; --line:#302C26;
+    --now:#8A8177; --new:#5FBF84;
+  }
 }
 *,*::before,*::after{box-sizing:border-box}
 body{
   margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
   font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
 }
-.wrap{max-width:760px; margin-inline:auto; padding:clamp(2rem,6vw,4.5rem) clamp(1.1rem,4vw,2rem) 4rem}
+.wrap{max-width:860px; margin-inline:auto; padding:clamp(2rem,6vw,4.5rem) clamp(1.1rem,4vw,2rem) 4rem}
 h1{font-size:clamp(1.5rem,1.1rem + 1.8vw,2.125rem); line-height:1.15; margin:0 0 .5rem; letter-spacing:-.01em}
-.sub{color:var(--ink-2); margin:0 0 2.5rem; max-width:52ch}
-ul{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
-li{background:var(--card)}
-a.item{display:block; padding:1.15rem 1.25rem; text-decoration:none; color:inherit}
-a.item:hover,a.item:focus-visible{background:var(--bg)}
-a.item:focus-visible{outline:3px solid var(--mark); outline-offset:-3px}
-.name{font-weight:600; font-size:1.0625rem; margin-bottom:.15rem}
-.meta{color:var(--ink-2); font-size:.875rem}
-.dom{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.8125rem; color:var(--ink-2)}
+.sub{color:var(--ink-2); margin:0 0 2.5rem; max-width:54ch}
+
+.list{list-style:none; margin:0; padding:0; display:grid; gap:1.25rem}
+.row{background:var(--card); border:1px solid var(--line)}
+.row h2{
+  font-size:1.0625rem; margin:0; padding:1rem 1.25rem .85rem;
+  border-bottom:1px solid var(--line); font-weight:600;
+}
+.row h2 span{display:block; font-weight:400; font-size:.875rem; color:var(--ink-2); margin-top:.1rem}
+
+/* Слева — их действующий сайт, справа — макет. Сравнение в один взгляд. */
+.pair{display:grid}
+@media(min-width:620px){.pair{grid-template-columns:1fr 1fr}}
+.side{
+  display:block; padding:1rem 1.25rem 1.15rem; text-decoration:none; color:inherit;
+  border-top:1px solid var(--line);
+}
+@media(min-width:620px){
+  .side{border-top:0}
+  .side + .side{border-left:1px solid var(--line)}
+}
+.side:hover,.side:focus-visible{background:var(--bg)}
+.side:focus-visible{outline:3px solid var(--ink); outline-offset:-3px}
+.tag{
+  font:600 .6875rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  letter-spacing:.12em; text-transform:uppercase; display:inline-block; margin-bottom:.45rem;
+}
+.side.now .tag{color:var(--now)}
+.side.new .tag{color:var(--new)}
+.side b{display:block; font-weight:600; font-size:.9375rem; margin-bottom:.1rem}
+.side i{
+  font-style:normal; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.75rem; color:var(--ink-2); word-break:break-all;
+}
+.side em{font-style:normal; display:block; font-size:.8125rem; color:var(--ink-2); margin-top:.3rem}
+
 .note{
   margin-top:2.5rem; padding:1.05rem 1.15rem; border:1px solid var(--line);
   background:var(--card); color:var(--ink-2); font-size:.875rem; line-height:1.55;
 }
+code{font-size:.8125rem}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Демо-макеты</h1>
-  <p class="sub">Прототипы сайтов, собранные на бренде, текстах и ценах самих компаний. Страницы закрыты от индексации.</p>
+  <p class="sub">Прототипы сайтов, собранные на бренде, текстах и ценах самих компаний. Слева — действующий сайт, справа — макет: открывайте рядом и сравнивайте.</p>
 
-  <ul>
-    <li><a class="item" href="automotoekb.ru/">
-      <div class="name">«Автомото» — шиномонтаж</div>
-      <div class="meta">Екатеринбург, четыре мастерских · рабочий калькулятор шиномонтажа</div>
-      <div class="dom">automotoekb.ru</div>
-    </a></li>
-    <li><a class="item" href="allo-garage.com/">
-      <div class="name">«Гараж» — кузовной ремонт и покраска дисков</div>
-      <div class="meta">Екатеринбург, Сортировка · порошковая покраска, детейлинг, PDR</div>
-      <div class="dom">allo-garage.com</div>
-    </a></li>
+  <ul class="list">
+
+    <li class="row">
+      <h2>«Автомото» — шиномонтаж<span>Екатеринбург, четыре мастерских</span></h2>
+      <div class="pair">
+        <a class="side now" href="https://automotoekb.ru/" target="_blank" rel="noopener noreferrer">
+          <span class="tag">Сейчас</span>
+          <b>Действующий сайт</b>
+          <i>automotoekb.ru</i>
+          <em>Калькулятор есть, но без адаптива — с телефона им не воспользоваться.</em>
+        </a>
+        <a class="side new" href="automotoekb.ru/">
+          <span class="tag">Макет</span>
+          <b>Что предлагаем</b>
+          <i>их тексты, цены и фотографии</i>
+          <em>Калькулятор пересобран на их же прайсе и работает на телефоне.</em>
+        </a>
+      </div>
+    </li>
+
+    <li class="row">
+      <h2>«Гараж» — кузовной ремонт и покраска дисков<span>Екатеринбург, Сортировка</span></h2>
+      <div class="pair">
+        <a class="side now" href="https://allo-garage.com/" target="_blank" rel="noopener noreferrer">
+          <span class="tag">Сейчас</span>
+          <b>Действующий сайт</b>
+          <i>allo-garage.com</i>
+          <em>Вёрстка таблицами, jQuery 1.7.2, ни одной media-query.</em>
+        </a>
+        <a class="side new" href="allo-garage.com/">
+          <span class="tag">Макет</span>
+          <b>Что предлагаем</b>
+          <i>их тексты, цены и фотографии</i>
+          <em>Прайс перенесён дословно, работы — с их подписями.</em>
+        </a>
+      </div>
+    </li>
+
   </ul>
 
   <p class="note">
