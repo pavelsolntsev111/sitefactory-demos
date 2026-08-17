@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SiteFactory — демо-макеты</title>
+<style>
+:root{
+  --bg:#F3F2EF; --card:#FFF; --ink:#16130F; --ink-2:#5E5951; --line:#D6D2CA; --mark:#111;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#14120F; --card:#1D1B17; --ink:#EDEAE4; --ink-2:#9A938A; --line:#302C26; --mark:#EDEAE4; }
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink); line-height:1.6;
+  font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+.wrap{max-width:760px; margin-inline:auto; padding:clamp(2rem,6vw,4.5rem) clamp(1.1rem,4vw,2rem) 4rem}
+h1{font-size:clamp(1.5rem,1.1rem + 1.8vw,2.125rem); line-height:1.15; margin:0 0 .5rem; letter-spacing:-.01em}
+.sub{color:var(--ink-2); margin:0 0 2.5rem; max-width:52ch}
+ul{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line); border:1px solid var(--line)}
+li{background:var(--card)}
+a.item{display:block; padding:1.15rem 1.25rem; text-decoration:none; color:inherit}
+a.item:hover,a.item:focus-visible{background:var(--bg)}
+a.item:focus-visible{outline:3px solid var(--mark); outline-offset:-3px}
+.name{font-weight:600; font-size:1.0625rem; margin-bottom:.15rem}
+.meta{color:var(--ink-2); font-size:.875rem}
+.dom{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.8125rem; color:var(--ink-2)}
+.note{
+  margin-top:2.5rem; padding:1.05rem 1.15rem; border:1px solid var(--line);
+  background:var(--card); color:var(--ink-2); font-size:.875rem; line-height:1.55;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Демо-макеты</h1>
+  <p class="sub">Прототипы сайтов, собранные на бренде, текстах и ценах самих компаний. Страницы закрыты от индексации.</p>
+
+  <ul>
+    <li><a class="item" href="automotoekb.ru/">
+      <div class="name">«Автомото» — шиномонтаж</div>
+      <div class="meta">Екатеринбург, четыре мастерских · рабочий калькулятор шиномонтажа</div>
+      <div class="dom">automotoekb.ru</div>
+    </a></li>
+    <li><a class="item" href="allo-garage.com/">
+      <div class="name">«Гараж» — кузовной ремонт и покраска дисков</div>
+      <div class="meta">Екатеринбург, Сортировка · порошковая покраска, детейлинг, PDR</div>
+      <div class="dom">allo-garage.com</div>
+    </a></li>
+  </ul>
+
+  <p class="note">
+    Каждый макет подготовлен для конкретной компании: тексты, цены и контакты взяты с её действующего сайта.
+    Страницы отдают <code>noindex, nofollow</code>, весь каталог закрыт в <code>robots.txt</code>
+    и будет удалён по первому требованию правообладателя.
+  </p>
+</div>
+</body>
+</html>
